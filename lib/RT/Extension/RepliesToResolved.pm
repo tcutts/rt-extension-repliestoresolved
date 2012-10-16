@@ -95,9 +95,10 @@ package RT::Interface::Email;
 	    # If the timelimit is undef, follow normal RT behaviour
 	    return $id unless defined($reopen_timelimit);
 
-            $RT::Logger->info("A reply to resolved ticket #". $ticket->id .", creating a new ticket");
-	
 	    if ($ticket->ResolvedObj->Diff()/-86400 > $reopen_timelimit) {
+
+                $RT::Logger->info("A reply to resolved ticket #". $ticket->id .", creating a new ticket");
+	
 	    	$entity->head->set("X-RT-Was-Reply-To" => Encode::encode_utf8($ticket->id));
 	    	my $subject = $entity->head->get('Subject') || '';
 	    	$entity->head->set('Subject' => RT::Extension::RepliesToResolved::RemoveSubjectTags($subject));
