@@ -73,6 +73,8 @@ package RT::Interface::Email;
         or die "It's not RT 4.0.7, you have to patch this RT."
             ." Read documentation for RT::Extension::RepliesToResolved";
 
+    no warnings qw(redefine);
+
     *ExtractTicketId = sub {
         my $entity = shift;
 
