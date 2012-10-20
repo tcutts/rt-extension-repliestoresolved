@@ -8,12 +8,7 @@ sub Describe {
 }
 
 sub Prepare {
-    my $self = shift;
-    my $Transaction = $self->TransactionObj;
-    my $FirstAttachment = $Transaction->Attachments->First;
-    return undef unless $FirstAttachment;
-    return undef unless $FirstAttachment->GetHeader('X-RT-Was-Reply-To');
-    return (1);
+    return 1;
 }
 
 sub Commit {
