@@ -40,7 +40,7 @@ undef stops the link from being created.
 Set(%RepliesToResolved,
    default => {
      'reopen-timelimit' => 7,
-     'link-type' => 'MemberOf',
+     'link-type' => 'RefersTo',
    },
 );
 
